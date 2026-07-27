@@ -669,7 +669,7 @@ def launch_attack(target_url: str, duration: int, concurrency: int = 50,
         headers = build_headers(target['host'], method, use_fingerprint, use_referer,
                                 use_random_ip, use_cloudflare, custom_headers)
         
-        print(f"{Fore.GREEN}[ELMY0711] 🎯 Attack started on {full_url}")
+        print(f"{Fore.GREEN}[NUIY] 🎯 Attack started on {full_url}")
         print(f"{Fore.CYAN}📡 Target IP: {target_ip}")
         print(f"{Fore.CYAN}Mode: {attack_mode} | Threads: {concurrency} | Duration: {duration}s\n")
         
