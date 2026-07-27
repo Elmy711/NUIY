@@ -60,12 +60,14 @@ console = Console()
 BANNER = r"""
 ════════════════════════════════════════════════════════════
 
-███████╗██╗     ███╗   ███╗██╗   ██╗ ██████╗ ███████╗ ██╗ ██╗
-██╔════╝██║     ████╗ ████║╚██╗ ██╔╝██╔═████╗╚════██║███║███║
-█████╗  ██║     ██╔████╔██║ ╚████╔╝ ██║██╔██║    ██╔╝╚██║╚██║
-██╔══╝  ██║     ██║╚██╔╝██║  ╚██╔╝  ████╔╝██║   ██╔╝  ██║ ██║
-███████╗███████╗██║ ╚═╝ ██║   ██║██╗╚██████╔╝   ██║   ██║ ██║
-╚══════╝╚══════╝╚═╝     ╚═╝   ╚═╝╚═╝ ╚═════╝    ╚═╝   ╚═╝ ╚═╝
+█[0;91;1;47m▓▓▓▓▓▓▓▓▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m    [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m    [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0m
+[0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m    [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m    [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m      [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m    [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0m
+[0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m    [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m    [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m    [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0m
+[0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m    [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m    [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0;37;40m    [0;91;1;47m▓▓[0;91;1;41m▌[0;90;1;40m▐[0m
+[0;91;1;41m██▌[0;90;1;40m▐[0;37;40m    [0;91;1;41m██▌[0;90;1;40m▐[0;37;40m [0;91;1;41m██▌[0;90;1;40m▐[0;37;40m    [0;91;1;41m██▌[0;90;1;40m▐[0;37;40m [0;91;1;41m██▌[0;90;1;40m▐[0;37;40m [0;91;1;41m██████████▌[0;90;1;40m▐[0m
+[0;91;1;41m▓▓▌[0;90;1;40m▐[0;37;40m    [0;91;1;41m▓▓▌[0;90;1;40m▐[0;37;40m [0;91;1;41m▓▓▌[0;90;1;40m▐[0;37;40m    [0;91;1;41m▓▓▌[0;90;1;40m▐[0;37;40m [0;91;1;41m▓▓▌[0;90;1;40m▐[0;37;40m         [0;91;1;41m▓▓▌[0;90;1;40m▐[0m
+[0;91;1;41m▒▒▌[0;90;1;40m▐[0;37;40m    [0;91;1;41m▒▒▌[0;90;1;40m▐[0;37;40m [0;91;1;41m▒▒▌[0;90;1;40m▐[0;37;40m    [0;91;1;41m▒▒▌[0;90;1;40m▐[0;37;40m [0;91;1;41m▒▒▌[0;90;1;40m▐[0;37;40m [0;91;1;41m▒▒▌[0;90;1;40m▐[0;37;40m    [0;91;1;41m▒▒▌[0;90;1;40m▐[0m
+[0;91;1;41m░░▌[0;90;1;40m▐[0;37;40m    [0;91;1;41m░░▌[0;90;1;40m▐[0;37;40m [0;91;1;41m░░░░░░░░░░▌[0;90;1;40m▐[0;37;40m [0;91;1;41m░░▌[0;90;1;40m▐[0;37;40m [0;91;1;41m░░░░░░░░░░▌[0;90;1;40m▐[0m
 
 ════════════════════════════════════════════════════════════
           
@@ -203,7 +205,7 @@ class ProxyManager:
                 continue
         
         self.proxies = list(set(all_proxies))
-        print(f"{Fore.GREEN}[ELMY0711] ✅ Loaded {len(self.proxies)} proxies")
+        print(f"{Fore.GREEN}[NUIY] ✅ Loaded {len(self.proxies)} proxies")
         return self.proxies
     
     def get_proxy(self):
@@ -401,7 +403,7 @@ def create_dashboard(stats_data: dict, duration: int, target: str, target_ip: st
     status_color = "green" if is_finished else "yellow"
     
     header_text = Text()
-    header_text.append("💜💖 ELMY0711 - LIVE MONITOR\n", style="bold magenta")
+    header_text.append("💜💖 NUIY  - DASHBOARD LIVE MONITOR\n", style="yellow")
     header_text.append(f"🌐 URL: ", style="cyan")
     header_text.append(f"{target}\n", style="bold white")
     header_text.append(f"📡 IP: ", style="cyan")
@@ -494,7 +496,7 @@ def print_summary(stats_data: dict, duration: int, target: str, target_ip: str,
     # Header
     console.print()
     console.print(Panel(
-        Text("ELMY0711 - ATTACK SUMMARY", style="bold magenta"),
+        Text("💜💖 NUIY - ATTACK SUMMARY", style="bold magenta"),
         border_style="red",
         width=70
     ))
@@ -590,7 +592,7 @@ def print_summary(stats_data: dict, duration: int, target: str, target_ip: str,
     ))
     
     console.print()
-    console.print(Text("ELMY0711....", style="cyan"))
+    console.print(Text("💖💜 NUIY ....", style="cyan"))
     console.print()
 
 # ==================== MAIN STRESS TEST ====================
@@ -684,11 +686,11 @@ def launch_attack(target_url: str, duration: int, concurrency: int = 50,
                      method, attack_mode, rate_limit)
         
         # EXIT PROGRAM
-        print(f"{Fore.GREEN}[ELMY0711] ✅ Attack completed. Exiting...")
+        print(f"{Fore.GREEN}[💜💖 NUIY] ✅ Attack completed. Exiting...")
         sys.exit(0)
         
     except KeyboardInterrupt:
-        print(f"\n{Fore.YELLOW}[ELMY0711] ⚡ Attack stopped by user")
+        print(f"\n{Fore.YELLOW}[💖💜 NUIY] ⚡ Attack stopped by user")
         sys.exit(1)
     except Exception as e:
         print(f"{Fore.RED}[ERROR] {e}")
@@ -700,7 +702,7 @@ if __name__ == "__main__":
     print(BANNER)
     
     print(f"{Fore.CYAN}╔═══════════════════════════════════════════════════════════╗")
-    print(f"{Fore.CYAN}║             ELMY0711 - LIVE DASHBOARD                     ║")
+    print(f"{Fore.CYAN}║             💜💖 NUIY - LIVE DASHBOARD                      ║")
     print(f"{Fore.CYAN}╚═══════════════════════════════════════════════════════════╝\n")
     
     target_url = input(f"{Fore.YELLOW}URL Target: {Fore.WHITE}")
@@ -751,7 +753,7 @@ if __name__ == "__main__":
                 key, value = header.split(':', 1)
                 custom_headers[key.strip()] = value.strip()
     
-    print(f"\n{Fore.GREEN}Starting attack with Live Dashboard...\n")
+    print(f"\n{Fore.GREEN} 💖💜 NUIY Starting attack with Live Dashboard...\n")
     console.clear()
     
     launch_attack(
