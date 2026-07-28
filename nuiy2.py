@@ -91,7 +91,7 @@ def detect_breaking_point():
 def save_report(target):
     sanitized = re.sub(r'^https?://', '', target)
     sanitized = re.sub(r'[^a-zA-Z0-9]', '_', sanitized)
-    filename = f"MINORITY_REPORT_{sanitized}.txt"
+    filename = f"NUIY 2_REPORT_{sanitized}.txt"
     with open(filename, 'w', encoding='utf-8') as f:
         f.write("\n".join(REPORT_LINES))
     log(f"\n{C.GREEN}[✅] Report berhasil disimpan ke: {filename}{C.END}")
@@ -177,12 +177,18 @@ def main():
     global monitor_active, CURRENT_THREADS, DEBUG_MODE, METHOD, PAYLOAD, TARGET_URL
 
     # Banner ASCII "NUIY" warna cyan
-    log(f"{C.CYAN}{C.BOLD}   _   _   _   _   {C.END}")
-    log(f"{C.CYAN}{C.BOLD}  / \\ / \\ / \\ / \\ {C.END}")
-    log(f"{C.CYAN}{C.BOLD} ( N | U | I | Y ){C.END}")
-    log(f"{C.CYAN}{C.BOLD}  \\_/ \\_/ \\_/ \\_/ {C.END}\n")
-
-    log(f"{C.BOLD}{C.CYAN} --- 💜 ELMY 0711 TOOLS 💖 ---{C.END}")
+    BANNER = r"""
+  ═══════════════════════════════════════════════════════════
+                                                          
+▄▄▄    ▄▄▄ ▄▄▄  ▄▄▄ ▄▄▄▄▄ ▄▄▄   ▄▄▄   ▄▄▄▄▄▄▄  
+████▄  ███ ███  ███  ███  ███   ███   ▀▀▀▀████ 
+███▀██▄███ ███  ███  ███  ▀███▄███▀      ▄██▀  
+███  ▀████ ███▄▄███  ███    ▀███▀      ▄███▄▄▄ 
+███    ███ ▀██████▀ ▄███▄    ███      ████████ 
+                                              
+═══════════════════════════════════════════════════════════
+    """
+    og(f"{C.BOLD}{C.CYAN} --- 💜 ELMY 0711 TOOLS 💖 ---{C.END}")
     log(" 💜 HTTP FLOOD BREAKPOINT FINDER 💖")
     log("="*50)
 
