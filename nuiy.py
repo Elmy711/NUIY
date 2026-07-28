@@ -492,7 +492,7 @@ def print_summary(stats_data: dict, duration: int, target: str, target_ip: str,
     # Header
     console.print()
     console.print(Panel(
-        Text("💜💖 NUIY - ATTACK SUMMARY", style="bold magenta"),
+        Text("💜💖 NUIY ATTACK RESULT", style="bold white"),
         border_style="red",
         width=70
     ))
@@ -682,11 +682,11 @@ def launch_attack(target_url: str, duration: int, concurrency: int = 50,
                      method, attack_mode, rate_limit)
         
         # EXIT PROGRAM
-        print(f"{Fore.GREEN}[💜💖 NUIY] ✅ Attack completed. Exiting...")
+        print(f"{Fore.GREEN}[💜💖 NUIY ✅ Attack completed. Exiting...")
         sys.exit(0)
         
     except KeyboardInterrupt:
-        print(f"\n{Fore.YELLOW}[💖💜 NUIY] ⚡ Attack stopped by user")
+        print(f"\n{Fore.YELLOW}[💖💜 NUIY]⚡ Attack stopped by user")
         sys.exit(1)
     except Exception as e:
         print(f"{Fore.RED}[ERROR] {e}")
