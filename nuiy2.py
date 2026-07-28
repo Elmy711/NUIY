@@ -188,8 +188,8 @@ def main():
                                               
 ═══════════════════════════════════════════════════════════
     """
-    og(f"{C.BOLD}{C.CYAN} --- 💜 ELMY 0711 TOOLS 💖 ---{C.END}")
-    log(" 💜 HTTP FLOOD BREAKPOINT FINDER 💖")
+    log(f"{C.BOLD}{C.CYAN} --- 💜 NUIY TOOLS 💖 ---{C.END}")
+    log(" 💜 HTTP FLOOD BREAKPOINT 💖")
     log("="*50)
 
     target = input("[🎯] Masukkan URL Target: ").strip()
@@ -328,7 +328,7 @@ def main():
     break_thread, break_rate = detect_breaking_point()
 
     log("\n" + "="*50)
-    log(f"{C.BOLD}{C.CYAN} MINORITY REPORT - {target} {C.END}")
+    log(f"{C.BOLD}{C.CYAN} NUIY FLOODER REPORT - {target} {C.END}")
     log("="*50)
     log(f"Target : {target} | Method: {METHOD}")
     log(f"Durasi : {duration}s | Thread: {start_threads} -> {max_threads}")
@@ -352,4 +352,5 @@ def main():
     save_report(target)
 
 if __name__ == "__main__":
-    main()
+
+}
