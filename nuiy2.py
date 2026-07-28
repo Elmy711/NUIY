@@ -34,14 +34,12 @@ PAYLOAD = None
 TARGET_URL = ""
 
 def log(msg):
-    """Mencetak dan menyimpan ke report"""
     print(msg)
     clean = msg
     for c in [C.GREEN, C.RED, C.YELLOW, C.CYAN, C.BOLD, C.END]: clean = clean.replace(c,'')
     REPORT_LINES.append(clean)
 
 def log_debug(msg):
-    """Mencetak tapi tidak disimpan ke report (hanya untuk debug)"""
     print(msg)
 
 def load_file(filename, default_list):
@@ -91,7 +89,7 @@ def detect_breaking_point():
 def save_report(target):
     sanitized = re.sub(r'^https?://', '', target)
     sanitized = re.sub(r'[^a-zA-Z0-9]', '_', sanitized)
-    filename = f"NUIY 2_REPORT_{sanitized}.txt"
+    filename = f"NUIY_REPORT_{sanitized}.txt"
     with open(filename, 'w', encoding='utf-8') as f:
         f.write("\n".join(REPORT_LINES))
     log(f"\n{C.GREEN}[✅] Report berhasil disimpan ke: {filename}{C.END}")
@@ -177,7 +175,7 @@ def main():
     global monitor_active, CURRENT_THREADS, DEBUG_MODE, METHOD, PAYLOAD, TARGET_URL
 
     # Banner ASCII "NUIY" warna cyan
-    BANNER = r"""
+    banner = r"""
   ═══════════════════════════════════════════════════════════
                                                           
 ▄▄▄    ▄▄▄ ▄▄▄  ▄▄▄ ▄▄▄▄▄ ▄▄▄   ▄▄▄   ▄▄▄▄▄▄▄  
@@ -188,6 +186,7 @@ def main():
                                               
 ═══════════════════════════════════════════════════════════
     """
+    log(f"{C.CYAN}{banner}{C.END}")
     log(f"{C.BOLD}{C.CYAN} --- 💜 NUIY TOOLS 💖 ---{C.END}")
     log(" 💜 HTTP FLOOD BREAKPOINT 💖")
     log("="*50)
@@ -312,9 +311,7 @@ def main():
         log(f"\n{C.YELLOW}[*] Dihentikan user{C.END}")
     finally:
         monitor_active = False
-        # Tunggu sebentar agar thread selesai dan tidak ada lagi output debug
         time.sleep(2)
-        # Kosongkan queue dan tandai task selesai untuk mencegah hang
         while not job_queue.empty():
             try:
                 job_queue.get_nowait()
@@ -322,7 +319,6 @@ def main():
             except queue.Empty:
                 break
 
-    # Bersihkan output dengan jeda
     time.sleep(0.5)
 
     break_thread, break_rate = detect_breaking_point()
@@ -352,5 +348,4 @@ def main():
     save_report(target)
 
 if __name__ == "__main__":
-
-
+    main()
