@@ -188,17 +188,17 @@ def main():
     """
     log(f"{C.CYAN}{banner}{C.END}")
 
-    target = input(" 🎯 Masukkan URL Target: ").strip()
+    target = input(" 🎯  Masukkan URL Target: ").strip()
     while not target: target = input("[❌] URL tidak boleh kosong: ").strip()
     TARGET_URL = target
 
-    METHOD = input(" ⚡ Method [GET/POST/HEAD] [default GET]: ").strip().upper() or "GET"
+    METHOD = input(" ⚡  Method [GET/POST/HEAD] [default GET]: ").strip().upper() or "GET"
     if METHOD == "POST":
-        payload_input = input(' 📦 Payload JSON [contoh: {"user":"admin"}]: ').strip()
+        payload_input = input(' 📦  Payload JSON [contoh: {"user":"admin"}]: ').strip()
         PAYLOAD = parse_payload(payload_input)
 
     try:
-        duration = int(input(" ⏱️ Durasi  (detik): "))
+        duration = int(input(" ⏱️   Durasi  (detik): "))
         start_threads = int(input(" 👥  Thread Awal [rekomendasi 5]: "))
         max_threads = int(input(" 🔥  Thread Maksimal [rekomendasi 200]: "))
         timeout_val = float(input(" ⏳  Timeout (detik) [default 5]: ") or 5)
