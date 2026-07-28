@@ -176,21 +176,14 @@ def main():
 
     # Banner ASCII "NUIY" warna cyan
     banner = r"""
-  ═══════════════════════════════════════════════════════════
-                                                          
+══════════════════════════════════════════════════════════
 ▄▄▄    ▄▄▄ ▄▄▄  ▄▄▄ ▄▄▄▄▄ ▄▄▄   ▄▄▄   ▄▄▄▄▄▄▄  
 ████▄  ███ ███  ███  ███  ███   ███   ▀▀▀▀████ 
 ███▀██▄███ ███  ███  ███  ▀███▄███▀      ▄██▀  
 ███  ▀████ ███▄▄███  ███    ▀███▀      ▄███▄▄▄ 
 ███    ███ ▀██████▀ ▄███▄    ███      ████████ 
-                                              
 ═══════════════════════════════════════════════════════════
     """
-    log(f"{C.CYAN}{banner}{C.END}")
-    log(f"{C.BOLD}{C.CYAN} --- 💜 NUIY TOOLS 💖 ---{C.END}")
-    log(" 💜 HTTP FLOOD BREAKPOINT 💖")
-    log("="*50)
-
     target = input("[🎯] Masukkan URL Target: ").strip()
     while not target: target = input("[❌] URL tidak boleh kosong: ").strip()
     TARGET_URL = target
