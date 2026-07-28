@@ -698,7 +698,7 @@ if __name__ == "__main__":
     print(BANNER)
     
     print(f"{Fore.CYAN}╔═══════════════════════════════════════════════════════════╗")
-    print(f"{Fore.CYAN}║             💜💖 NUIY - LIVE DASHBOARD                      ║")
+    print(f"{Fore.CYAN}║             💜💖 NUIY - LIVE DASHBOARD                    ║")
     print(f"{Fore.CYAN}╚═══════════════════════════════════════════════════════════╝\n")
     
     target_url = input(f"{Fore.YELLOW}URL Target: {Fore.WHITE}")
