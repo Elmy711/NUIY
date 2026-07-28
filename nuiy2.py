@@ -123,9 +123,9 @@ def check_worker(job_queue, target, duration, user_agents, timeout_val):
                     with print_lock:
                         tag = f"[{METHOD}]"
                         if attempt > 1:
-                            log_debug(f"{C.YELLOW}[OK-R{attempt}][T{my_thread_count}]{tag}{C.END} {timestamp} | {color}{status}{C.END} | {res_time}ms")
+                            log_debug(f"{C.YELLOW}[🚀-R{attempt}][T{my_thread_count}]{tag}{C.END} {timestamp} | {color}{status}{C.END} | {res_time}ms")
                         else:
-                            log_debug(f"{color}[OK][T{my_thread_count}]{tag}{C.END} {timestamp} | {color}{status}{C.END} | {res_time}ms")
+                            log_debug(f"{color}[🚀][T{my_thread_count}]{tag}{C.END} {timestamp} | {color}{status}{C.END} | {res_time}ms")
                 break
             except requests.exceptions.Timeout:
                 if attempt == MAX_RETRY:
@@ -176,13 +176,13 @@ def main():
 
     # Banner ASCII "NUIY" warna cyan (tanpa teks tambahan)
     banner = r"""
-  ═══════════════════════════════════════════════════════════
+ ═══════════════════════════════════════════════════════════
                                                           
 ▄▄▄    ▄▄▄ ▄▄▄  ▄▄▄ ▄▄▄▄▄ ▄▄▄   ▄▄▄   ▄▄▄▄▄▄▄  
 ████▄  ███ ███  ███  ███  ███   ███   ▀▀▀▀████ 
 ███▀██▄███ ███  ███  ███  ▀███▄███▀      ▄██▀  
 ███  ▀████ ███▄▄███  ███    ▀███▀      ▄███▄▄▄ 
-███    ███ ▀██████▀ ▄███▄    ███      ████████ 
+███    ███ ▀██████▀ ▄███▄    ███      ████████  💖💜
                                               
 ═══════════════════════════════════════════════════════════
     """
@@ -198,10 +198,10 @@ def main():
         PAYLOAD = parse_payload(payload_input)
 
     try:
-        duration = int(input("[⏱️] Durasi monitoring (detik): "))
-        start_threads = int(input("[👥] Thread Awal [rekomendasi 2]: "))
-        max_threads = int(input("[🔥] Thread Maksimal [rekomendasi 20]: "))
-        timeout_val = float(input("[⏳] Timeout per request (detik) [default 5]: ") or 5)
+        duration = int(input("[⏱️] Durasi  (detik): "))
+        start_threads = int(input("[👥] Thread Awal [rekomendasi 5]: "))
+        max_threads = int(input("[🔥] Thread Maksimal [rekomendasi 200]: "))
+        timeout_val = float(input("[⏳] Timeout (detik) [default 5]: ") or 5)
         debug_input = input("[🐛] Debug Mode [ON/OFF] [default ON]: ").strip().upper()
         DEBUG_MODE = False if debug_input == "OFF" else True
     except ValueError:
@@ -305,7 +305,7 @@ def main():
                 for _ in range(CURRENT_THREADS * 2): job_queue.put(True)
             time.sleep(0.1)
     except KeyboardInterrupt:
-        log(f"\n{C.YELLOW}[*] Dihentikan user{C.END}")
+        log(f"\n{C.YELLOW}[*] Dihentikan oleh keadaan{C.END}")
     finally:
         monitor_active = False
         time.sleep(2)
