@@ -174,16 +174,20 @@ def parse_payload(input_str):
 def main():
     global monitor_active, CURRENT_THREADS, DEBUG_MODE, METHOD, PAYLOAD, TARGET_URL
 
-    # Banner ASCII "NUIY" warna cyan
+    # Banner ASCII "NUIY" warna cyan (tanpa teks tambahan)
     banner = r"""
-══════════════════════════════════════════════════════════
+  ═══════════════════════════════════════════════════════════
+                                                          
 ▄▄▄    ▄▄▄ ▄▄▄  ▄▄▄ ▄▄▄▄▄ ▄▄▄   ▄▄▄   ▄▄▄▄▄▄▄  
 ████▄  ███ ███  ███  ███  ███   ███   ▀▀▀▀████ 
 ███▀██▄███ ███  ███  ███  ▀███▄███▀      ▄██▀  
 ███  ▀████ ███▄▄███  ███    ▀███▀      ▄███▄▄▄ 
 ███    ███ ▀██████▀ ▄███▄    ███      ████████ 
+                                              
 ═══════════════════════════════════════════════════════════
     """
+    log(f"{C.CYAN}{banner}{C.END}")
+
     target = input("[🎯] Masukkan URL Target: ").strip()
     while not target: target = input("[❌] URL tidak boleh kosong: ").strip()
     TARGET_URL = target
